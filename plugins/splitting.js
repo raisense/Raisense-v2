@@ -1,0 +1,1 @@
+import Splitting from "splitting";
