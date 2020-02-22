@@ -6,9 +6,10 @@
   "private": true,
   "scripts": {
     "dev": "nuxt",
-    "build": "nuxt build",
     "start": "nuxt start",
-    "generate": "nuxt generate"
+    "build:gh-pages": "cross-env DEPLOY_ENV=GH_PAGES nuxt build",
+    "generate:gh-pages": "cross-env DEPLOY_ENV=GH_PAGES nuxt generate",
+    "deploy": "push-dir --dir=dist --branch=gh-pages --cleanup"
   },
   "dependencies": {
     "@bazzite/nuxt-optimized-images": "^0.3.0",
@@ -22,6 +23,7 @@
     "nuxt-i18n": "^6.5.0",
     "prismic-javascript": "^2.1.5",
     "prismic-vue": "https://github.com/prismicio/prismic-vue.git#nuxt",
+    "push-dir": "^0.4.1",
     "splitting": "^1.0.6",
     "vue-lottie": "^0.2.1",
     "vue-smooth-scrollbar": "^0.1.2",

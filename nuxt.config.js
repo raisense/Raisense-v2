@@ -2,6 +2,15 @@ const config = require("./contentful.json");
 import i18n from "./i18n";
 const PrismicConfig = require("./prismic.config");
 
+const routerBase =
+  process.env.DEPLOY_ENV === "GH_PAGES"
+    ? {
+        router: {
+          base: "/raisense-nuxt/"
+        }
+      }
+    : {};
+
 export default {
   mode: "universal",
   /*
@@ -33,7 +42,9 @@ export default {
   /*
    ** Customize the progress-bar color
    */
-  loading: { color: "#000" },
+  loading: { color: "#00c58e" },
+
+  ...routerBase,
 
   env: {
     CTF_SPACE_ID: config.CTF_SPACE_ID,
