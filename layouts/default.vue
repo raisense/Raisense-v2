@@ -2,7 +2,7 @@
   <div>
     <div id="scroll-area">
       <smooth-scrollbar>
-        <div class="cursor" ref="cursor"></div>
+        <!-- <div class="cursor" ref="cursor"></div> -->
         <Navbar></Navbar>
         <nuxt />
         <Footer></Footer>
@@ -32,7 +32,7 @@ export default {
     }
   },
   mounted() {
-    document.addEventListener("mousemove", this.moveCursor);
+    // document.addEventListener("mousemove", this.moveCursor);
   }
 };
 </script>

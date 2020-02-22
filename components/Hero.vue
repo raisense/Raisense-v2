@@ -2,7 +2,10 @@
   <div id="hero">
     <b-container>
       <div class="hero-content">
-        <h1 class="hero__title">{{ data.title }}</h1>
+        <h1 class="hero__title">
+          {{ data.title }}
+          <img v-if="logo" class="logo-full" src="../assets/images/logo-full.svg" />
+        </h1>
         <p class="hero__desc">{{ data.desc }}</p>
       </div>
     </b-container>
@@ -13,7 +16,7 @@
 import { gsap } from "gsap";
 
 export default {
-  props: ["data"],
+  props: ["data", "logo"],
   mounted() {
     let tl = gsap.timeline();
 
@@ -45,6 +48,7 @@ export default {
 
 .hero__title {
   font-size: 4rem;
+  font-weight: bold;
   text-align: left;
   color: #010101;
 }

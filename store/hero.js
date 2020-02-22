@@ -2,10 +2,11 @@ export const state = () => ({
   hero: {
     index: {
       title: "Hey, we are RAISENSE",
-      desc: "We are Software Company based in Tashkent"
+      desc:
+        "We deliver IT-products that actually RAISE you up and optimize business processes up to the point that makes SENSE"
     },
     about: {
-      title: "About",
+      title: "Hey, we are RAISENSE",
       desc: "We are Software Company based in Tashkent"
     },
     team: {

@@ -75,14 +75,13 @@
       </div>
       <div class="technologies">
         <b-row>
-          <b-col cols="4">
+          <b-col cols="12" md="4">
             <h3>Technology & Tools</h3>
-            <p>
-              WE ARE CONSTANTLY EVOLVING AND EXPANDING OUR KNOWLEDGE OF NEW
-              TECHNOLOGIES AND TOOLS
-            </p>
+            <p
+              class="mb-5 mb-md-0"
+            >We are constantly evolving and expanding our knowledge of new technologies and tools</p>
           </b-col>
-          <b-col cols="8">
+          <b-col cols="12" md="8">
             <b-row align-h="center">
               <b-col
                 cols="3"
@@ -90,7 +89,7 @@
                 :key="i"
                 class="d-flex justify-content-center align-items-center mb-5"
               >
-                <img :src="'/images/technologies' + tech" alt />
+                <img :src="'/images/technologies' + tech" class="tech-img" alt />
               </b-col>
             </b-row>
           </b-col>
@@ -160,5 +159,15 @@ blockquote {
   padding-left: 24px;
   font-size: 18px;
   font-weight: bold;
+}
+
+.technologies h3 {
+  font-size: 45px;
+  font-weight: bold;
+}
+
+.tech-img {
+  /* width: 100%;
+  height: ; */
 }
 </style>

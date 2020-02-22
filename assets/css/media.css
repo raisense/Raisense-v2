@@ -1,0 +1,136 @@
+@media screen and (max-width: 1200px) {}
+
+@media screen and (max-width: 1024px) {}
+
+@media screen and (max-width: 992px) {
+    .member {
+        width: calc(100% / 2) !important;
+        padding: 0 15px;
+        margin-bottom: 32px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .hero__title {
+        font-size: 2rem !important;
+    }
+
+
+    .logo-full {
+        vertical-align: 0px;
+        height: 24px;
+    }
+
+    .hero__desc {
+        font-size: 1rem !important;
+    }
+
+    .member {
+        width: calc(100% / 2) !important;
+        padding: 0 15px;
+        margin-bottom: 32px;
+    }
+
+    .project__image {
+        height: 200px !important;
+    }
+
+
+    #footer .address {
+        width: 100% !important;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .member {
+        width: calc(100%) !important;
+        padding: 0 15px;
+        margin-bottom: 32px;
+    }
+
+    .portfolio-nav .categories {
+        padding: 0;
+        display: flex;
+        justify-content: space-between;
+        margin-top: 24px;
+    }
+
+    .category {
+        font-size: 16px;
+    }
+
+    .submit {
+        align-self: center !important;
+        margin-bottom: 2rem;
+    }
+
+    #footer .address {
+        width: 100% !important;
+    }
+
+    .project__title {
+        font-size: 1.5rem !important;
+    }
+
+    #services {
+        height: auto !important;
+        margin-bottom: 3rem;
+    }
+
+    #services h2 {
+        margin-bottom: 2rem;
+        font-size: 40px;
+        font-weight: bold;
+    }
+
+    .accordion-item .inner {
+        margin-bottom: 1rem !important;
+    }
+
+    .menu-item {
+        font-size: 2rem !important;
+    }
+
+    .floating__input {
+        border-width: 0;
+        margin-bottom: 3rem;
+        color: #fff;
+        width: 100% !important;
+    }
+
+    .our-works__header,
+    .partners__header {
+        justify-content: center;
+        flex-direction: column;
+    }
+
+    .header-title {
+        width: 100%;
+        font-size: 40px;
+        font-weight: bold;
+    }
+
+    .header-info {
+        width: 100% !important;
+        text-align: left !important;
+    }
+
+    .member {
+        width: 100% !important;
+    }
+
+
+}
+
+@media screen and (max-width: 400px) {}
+
+/* MIN WIDTH */
+
+@media screen and (min-width: 768px) {
+
+    .logo-full {
+        vertical-align: 0px;
+        height: 3rem;
+        margin-left: 6px;
+    }
+}

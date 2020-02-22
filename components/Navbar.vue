@@ -20,11 +20,7 @@
         </div>
       </div>
     </b-container>
-    <div
-      class="menu"
-      v-if="isMenuVisible == true"
-      :class="{ 'menu-open': isMenuVisible }"
-    >
+    <div class="menu" v-if="isMenuVisible == true" :class="{ 'menu-open': isMenuVisible }">
       <b-container>
         <div class="menu-content">
           <div class="background">
@@ -34,36 +30,56 @@
 
           <div class="menu-list">
             <div class="menu-item" @click.prevent="isMenuVisible = false">
-              <nuxt-link :to="localePath('/work')">Works</nuxt-link>
+              <nuxt-link :to="localePath('/work')">
+                {{
+                $t("navigation.works")
+                }}
+              </nuxt-link>
             </div>
 
             <div class="menu-item" @click.prevent="isMenuVisible = false">
-              <nuxt-link :to="localePath('/about')">About Us</nuxt-link>
+              <nuxt-link :to="localePath('/about')">
+                {{
+                $t("navigation.about")
+                }}
+              </nuxt-link>
             </div>
             <div class="menu-item" @click.prevent="isMenuVisible = false">
-              <nuxt-link :to="localePath('/how-we-work')"
-                >How We Work</nuxt-link
-              >
+              <nuxt-link :to="localePath('/how-we-work')">
+                {{
+                $t("navigation.howWeWork")
+                }}
+              </nuxt-link>
             </div>
             <div class="menu-item" @click.prevent="isMenuVisible = false">
-              <nuxt-link :to="localePath('/team')">Team</nuxt-link>
+              <nuxt-link :to="localePath('/team')">
+                {{
+                $t("navigation.team")
+                }}
+              </nuxt-link>
             </div>
 
             <div class="langs">
-              <span class="langs__item" @click.prevent="isMenuVisible = false">
-                <nuxt-link :to="switchLocalePath('ru')">
-                  Rus
-                </nuxt-link>
+              <span
+                class="langs__item"
+                :class="{ active: currentLang == 'ru' }"
+                @click.prevent="isMenuVisible = false"
+              >
+                <nuxt-link :to="switchLocalePath('ru')">Rus</nuxt-link>
               </span>
-              <span class="langs__item" @click.prevent="isMenuVisible = false">
-                <nuxt-link :to="switchLocalePath('en')">
-                  Eng
-                </nuxt-link>
+              <span
+                class="langs__item"
+                :class="{ active: currentLang == 'en' }"
+                @click.prevent="isMenuVisible = false"
+              >
+                <nuxt-link :to="switchLocalePath('en')">Eng</nuxt-link>
               </span>
-              <span class="langs__item" @click.prevent="isMenuVisible = false">
-                <nuxt-link :to="switchLocalePath('uz')">
-                  O'zb
-                </nuxt-link>
+              <span
+                class="langs__item"
+                :class="{ active: currentLang == 'uz' }"
+                @click.prevent="isMenuVisible = false"
+              >
+                <nuxt-link :to="switchLocalePath('uz')">O'zb</nuxt-link>
               </span>
             </div>
           </div>
@@ -80,14 +96,19 @@ export default {
       isMenuVisible: false
     };
   },
-  computed: {}
+  computed: {
+    currentLang() {
+      return this.$i18n.locale;
+    }
+  }
 };
 </script>
 
 <style scoped>
 #nav {
   padding-top: 40px;
-  position: absolute;
+  position: fixed;
+  overflow: hidden;
   top: 0;
   z-index: 40;
   left: 0;
@@ -169,16 +190,20 @@ export default {
 }
 
 .langs {
-  margin-right: 2em;
+  margin-top: 2em;
 }
 
 .langs__item:not(:last-child) {
   padding-right: 5px;
   /* line-height: -10px; */
-  border-right: 1px solid #333;
 }
 
 .menu {
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
   padding-top: 40px;
   width: 100%;
   height: 100%;
@@ -202,7 +227,7 @@ export default {
 .menu-item {
   text-align: right;
 
-  font-size: 2em;
+  font-size: 3em;
   margin-bottom: 32px;
   cursor: pointer;
   overflow: hidden;
@@ -220,22 +245,22 @@ export default {
 .menu-item:before {
   content: "";
   position: absolute;
-  top: 58%;
+  top: 52%;
   left: 0;
   width: 0%;
   height: 0.075em;
-  background: #000;
+  background: #222;
   pointer-events: none;
 }
 
 .menu-item:after {
   content: "";
   position: absolute;
-  top: 58%;
+  top: 52%;
   right: 0;
   width: 0%;
   height: 0.075em;
-  background: #000;
+  background: #222;
   right: 0;
   transition: width 0.8s cubic-bezier(0.22, 0.61, 0.36, 1);
   pointer-events: none;
@@ -255,6 +280,7 @@ export default {
 .menu-item a {
   text-decoration: none;
   color: inherit;
+  font-weight: bold;
 }
 
 .menu-content .background {
@@ -268,7 +294,7 @@ export default {
   top: 0;
   left: 0;
   z-index: 999;
-  background-color: #eee;
+  /* background-color: #eee; */
   height: 100%;
   transform: translate(0, -100%);
   transition: 750ms all cubic-bezier(0.77, 0, 0.175, 1) 150ms;
@@ -276,5 +302,29 @@ export default {
 
 .menu-open .menu-content .background div:first-child {
   transform: translate(0, 0);
+}
+
+.langs__item a {
+  padding: 10px 18px;
+  border: 1px solid #ccc;
+  text-decoration: none;
+  border-radius: 2px;
+  color: #000;
+}
+
+.langs__item.active a {
+  border: 1px solid #111;
+  background-color: #111;
+  color: #fff;
+}
+
+.langs__item.active:hover a {
+  border: 1px solid #333;
+  background-color: #333;
+  color: #fff;
+}
+
+.langs__item a:hover {
+  background-color: rgb(241, 241, 241);
 }
 </style>

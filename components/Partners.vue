@@ -10,13 +10,17 @@
       </div>
       <div class="partners-list">
         <b-row>
-          <b-col v-for="(partner, i) in partners" :key="i" cols="2">
-            <a :href="partner.src">
-              <img
-                :src="'/images/svg' + partner.image"
-                :alt="partner.title"
-                :title="partner.title"
-              />
+          <b-col
+            v-for="(partner, i) in partners"
+            :key="i"
+            cols="6"
+            sm="6"
+            md="3"
+            lg="2"
+            class="d-flex justify-content-center align-items-center"
+          >
+            <a :href="partner.src" class="mb-4">
+              <img :src="'/images/svg' + partner.image" :alt="partner.title" :title="partner.title" />
             </a>
           </b-col>
         </b-row>

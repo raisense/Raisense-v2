@@ -1,3 +1,7 @@
+const config = require("./contentful.json");
+import i18n from "./i18n";
+const PrismicConfig = require("./prismic.config");
+
 export default {
   mode: "universal",
   /*
@@ -14,24 +18,47 @@ export default {
         content: process.env.npm_package_description || ""
       }
     ],
-    link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }]
+    link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }],
+    script: [
+      {
+        innerHTML:
+          '{ window.prismic = { endpoint: "' +
+          PrismicConfig.apiEndpoint +
+          '"} }'
+      },
+      { src: "//static.cdn.prismic.io/prismic.min.js" }
+    ],
+    __dangerouslyDisableSanitizers: ["script"]
   },
   /*
    ** Customize the progress-bar color
    */
-  loading: { color: "#fff" },
+  loading: { color: "#000" },
+
+  env: {
+    CTF_SPACE_ID: config.CTF_SPACE_ID,
+    CTF_CDA_ACCESS_TOKEN: config.CTF_CDA_ACCESS_TOKEN,
+    CTF_ENVIRONMENT: config.CTF_ENVIRONMENT
+  },
+
   /*
    ** Global CSS
    */
   css: [
     "splitting/dist/splitting.css",
     "splitting/dist/splitting-cells.css",
+    "~/assets/css/media.css",
     "~/assets/css/global.css"
   ],
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: [{ src: "~/plugins/smoothscrollbar.js", ssr: false }],
+  plugins: [
+    "~/plugins/contentful.js",
+    "~/plugins/prismic-vue.js",
+    { src: "~/plugins/smoothscrollbar.js", ssr: false },
+    { src: "~/plugins/lottie.js", ssr: false }
+  ],
   /*
    ** Nuxt.js dev-modules
    */
@@ -42,27 +69,16 @@ export default {
   modules: [
     // Doc: https://bootstrap-vue.js.org
     "bootstrap-vue/nuxt",
-    "nuxt-i18n"
+    ["nuxt-i18n", i18n],
+
+    "@bazzite/nuxt-optimized-images"
   ],
 
-  i18n: {
-    locales: ["en", "ru", "uz"],
-    defaultLocale: "ru",
-    vueI18n: {
-      fallbackLocale: "ru",
-      messages: {
-        en: {
-          welcome: "Welcome"
-        },
-        ru: {
-          welcome: "Здраствуйте"
-        },
-        uz: {
-          welcome: "Assalomu alaykum"
-        }
-      }
-    }
+  optimizedImages: {
+    optimizeImages: true,
+    optimizeImagesInDev: true
   },
+
   /*
    ** Build configuration
    */
@@ -70,6 +86,9 @@ export default {
     /*
      ** You can extend webpack config here
      */
-    extend(config, ctx) {}
+
+    extend(config, ctx) {
+      config.resolve.alias["vue"] = "vue/dist/vue.common";
+    }
   }
 };

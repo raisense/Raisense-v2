@@ -11,13 +11,21 @@
     "generate": "nuxt generate"
   },
   "dependencies": {
+    "@bazzite/nuxt-optimized-images": "^0.3.0",
     "bootstrap": "^4.1.3",
     "bootstrap-vue": "^2.0.0",
+    "contentful": "^7.13.1",
     "gsap": "^3.1.1",
+    "imagemin-pngquant": "^8.0.0",
+    "lottie-web": "^5.6.4",
     "nuxt": "^2.0.0",
     "nuxt-i18n": "^6.5.0",
+    "prismic-javascript": "^2.1.5",
+    "prismic-vue": "https://github.com/prismicio/prismic-vue.git#nuxt",
     "splitting": "^1.0.6",
-    "vue-smooth-scrollbar": "^0.1.2"
+    "vue-lottie": "^0.2.1",
+    "vue-smooth-scrollbar": "^0.1.2",
+    "webp-loader": "^0.6.0"
   },
   "devDependencies": {}
 }

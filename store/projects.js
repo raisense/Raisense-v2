@@ -1,31 +1,30 @@
 export const state = () => ({
-  projects: [
+  categories: [
     {
-      title: "Samanta",
-      desc: "Speech Recognition based offline vortial assistant",
-      image: "/samantha.jpg",
-      src: "#"
+      id: "*",
+      name: "All"
     },
     {
-      title: "C-Vision",
-      desc: "AI-based ED technology for entrance exams and proctoring",
-      image: "/cvision.jpg",
-      src: "#"
+      id: "design",
+      name: "Design"
     },
     {
-      title: "Partiya Edi",
-      desc: "Online restaurant with Delivery service",
-      image: "/partiyaedi.jpg",
-      src: "#"
+      id: "website",
+      name: "Web"
     },
     {
-      title: "Samanta",
-      desc: "Speech Recognition based offline vortial assistant",
-      image: "/samantha.jpg",
-      src: "#"
+      id: "mobile",
+      name: "Mobile"
+    },
+    {
+      id: "ai",
+      name: "AI & ML"
+    },
+    {
+      id: "3d",
+      name: "3D"
     }
-  ],
-  categories: ["All", "Design", "Web", "Mobile", "AI & ML", "3D"]
+  ]
 });
 
 export const mutations = {};

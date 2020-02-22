@@ -1,3 +1,159 @@
+@font-face {
+    font-family: "SF Pro Display";
+    src: url("../fonts/SFProDisplay-Bold.woff2") format("woff2"),
+        url("../fonts/SFProDisplay-Bold.woff") format("woff");
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "SF Pro Display";
+    src: url("../fonts/SFProDisplay-Regular.woff2") format("woff2"),
+        url("../fonts/SFProDisplay-Regular.woff") format("woff");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "SF Pro Display";
+    src: url("../fonts/SFProDisplay-Thin.woff2") format("woff2"),
+        url("../fonts/SFProDisplay-Thin.woff") format("woff");
+    font-weight: 300;
+    font-style: normal;
+}
+
 body {
+    font-family: "SF Pro Display";
     overflow-x: hidden;
+}
+
+#footer a:hover {
+    text-decoration: none;
+    color: #ccc !important;
+}
+
+textarea {
+    outline: none;
+}
+
+.leet-link {
+    position: relative;
+    padding: 0 0 4px 0 !important;
+    /* border: 0 !important; */
+    /* display: inline-block; */
+}
+
+:root {
+    --white: #fff;
+}
+
+.header-title,
+#services h2 {
+    font-size: 40px;
+    font-weight: bold;
+}
+
+.leet-link:hover {
+    text-decoration: none;
+}
+
+.leet-link.active:before,
+.leet-link.active:after {
+    background-color: #000;
+    height: 2px;
+}
+
+.leet-link:before {
+    position: absolute;
+    content: "";
+    width: 0%;
+    background-color: var(--white);
+    height: 1.25px;
+    bottom: 0;
+    left: 0;
+}
+
+.leet-link:hover:before {
+    width: 100%;
+    transition: 0.3s width cubic-bezier(0.22, 0.61, 0.36, 1);
+    transition-delay: 0.6s;
+}
+
+.leet-link::after {
+    position: absolute;
+    content: "";
+    width: 100%;
+    background-color: var(--white);
+    height: 1.25px;
+    right: 0;
+    bottom: 0;
+}
+
+.leet-link:hover::after {
+    width: 0%;
+    transition: 0.3s width cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+.leet-btn {
+    position: relative;
+    text-transform: uppercase;
+    height: 48px;
+    background-color: transparent;
+    border: 0;
+    display: flex;
+    align-items: center;
+}
+
+.leet-btn .button-background {
+    display: flex;
+}
+
+
+.leet-btn .button-background .left {
+    position: absolute;
+    left: -14px;
+    top: 0;
+    width: 48px;
+    height: 100%;
+}
+
+/* .leet-btn .button-background .right:before,  */
+.leet-btn .button-background .left:before {
+    background-color: #323135;
+    content: "";
+    width: 48px;
+    position: absolute;
+    height: 48px;
+    display: block;
+    border-radius: 50%;
+}
+
+.leet-btn:hover .button-background .center {
+    width: 100%;
+    /* transition: .3s width ease-in; */
+}
+
+.leet-btn .button-background .center {
+    transition: .3s width ease-in;
+    position: absolute;
+    background-color: #323135;
+    /* display: none; */
+    left: -1px;
+    top: 0;
+    right: 0;
+    width: 0%;
+    height: 48px;
+    border-radius: 48px;
+}
+
+
+.leet-btn .button-background .right {}
+
+.leet-btn .plus-icon {
+    margin-left: 24px;
+}
+
+.leet-btn .text {
+    position: relative;
+    z-index: 3;
 }
