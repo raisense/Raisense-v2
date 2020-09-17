@@ -1,0 +1,1 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[1],{147:function(e,n){e.exports={locales:[{code:"en",iso:"en-US",name:"English",file:"en.js"},{code:"ru",iso:"ru-RU",name:"Russian",file:"ru.js"},{code:"uz",iso:"uz-UZ",name:"Uzbek",file:"uz.js"}],defaultLocale:"ru",seo:!0,lazy:!0,detectBrowserLanguage:!0,vueI18n:{fallbackLocale:"ru"},loadLanguagesAsync:!1,langDir:"i18n/"}}}]);
